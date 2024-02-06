@@ -29,6 +29,9 @@
 - fake_useragent
 - pandas
 
+#### Evtl.:
+- setuptools
+
 ### Installation von Requirements:
 1. Öffne ein Terminal.
 2. Navigiere zum Verzeichnis deines Projekts.
