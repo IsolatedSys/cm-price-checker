@@ -1,5 +1,12 @@
 # cm-price-checker
 
+## Disclaimer:
+Evt. verstößt dieses Skript gegen die Richtlinien einer Seite. Eventuelle Sperren sind möglich, wenn zuviele Anfragen hintereinander gesendet werden. Verwendung auf eigene Gefahr.
+
+Aufpassen, dass ältere .xlsx Dateien nicht überschrieben werden! Noch nicht ausgiebig genug getestet.
+
+Möglicherweise funktioniert es, wenn ein 'generierter Output' wieder als Input verwendet wird, sodass das Ergebnis eine erweiterte Liste ist. Bitte testen, ansonsten Issue erstellen.
+
 ## Windows Executable
 1. Downloade die .exe Datei in [Releases](https://github.com/IsolatedSys/cm-price-checker/releases/tag/v1.1.0)
 2. Commandline (cmd) öffnen und mit `.\cm-scraper.exe` ausführen. Weitere Argumente siehe Abschnitt [CLI Arguments](./README.md#cli-argumente)
