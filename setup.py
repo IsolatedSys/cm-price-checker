@@ -24,7 +24,6 @@ setup(
     keywords='price checker cm',
     packages=find_packages(),
     install_requires=[
-        're',
         'cfscrape',
         'beautifulsoup4',
         'fake_useragent',
