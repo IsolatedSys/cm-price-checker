@@ -8,8 +8,8 @@ def query_card(url):
     user_agent = ua.random
     scraper = cfscrape.create_scraper()
     scraper.headers['User-Agent'] = user_agent
-    print(scraper.headers['User-Agent'])
-    print(scraper.headers)
+    # print(scraper.headers['User-Agent'])
+    # print(scraper.headers)
     response = scraper.get(url)
     scraper.close()
     return response.content
@@ -20,7 +20,7 @@ def extract_card_name(html):
     h1 = soup.find('h1')
     pattern = re.compile(r'(.*?) \(')
     if not h1:
-        print(html)
+        # print(html)
         return None
 
     match = re.search(pattern, h1.text)
@@ -37,7 +37,7 @@ def extract_card_number(html):
     h1 = soup.find('h1')
     pattern = re.compile(r'\((.*?)\)')
     if not h1:
-        print(html)
+        # print(html)
         return None
     match = re.search(pattern, h1.text)
     if match:
