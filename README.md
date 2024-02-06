@@ -1,5 +1,9 @@
 # cm-price-checker
 
+## Windows Executable
+1. Downloader der .exe Datei in Releases
+2. Commandline (cmd) öffnen und mit `.\cm-scraper.exe` ausführen. Weitere Argumente siehe Abschnitt [CLI Arguments](./CLI-Argumente)
+
 ## Python
 
 ### Windows Installation:
@@ -56,7 +60,7 @@ Beispiel um eine Vorlage zu generieren. Erstellt im `xlsx` Ordner das File `Vorl
 ```bash
 python cm-scraper --create
 ```
-Das erstellte File kann befüllt werden und mit
+Das erstellte File kann mit URLs zu den Karten befüllt werden und mit
 ```bash
 python cm-scraper.py
 ```
