@@ -35,3 +35,30 @@
 1. Öffne ein Terminal.
 2. Navigiere zum Verzeichnis deines Projekts.
 3. Führe den Befehl aus: `pip install -r requirements.txt`
+
+
+## CLI-Argumente
+
+Das Skript akzeptiert verschiedene CLI-Argumente für die Steuerung seines Verhaltens. Hier sind die verfügbaren Optionen:
+
+- `--path <PATH>`: Pfad zur Eingabedatei im XLSX-Format. (Default: xlsx/Vorlage.xlsx)
+- `--output <PATH>`: Pfad zur Ausgabedatei im XLSX-Format. (Default: xlsx/Ergebnis.xlsx)
+- `--jump_over_filled`: Überspringt gefüllte Einträge und ruft nur neue URLs ab (Standard: False).
+- `--sleep <SECONDS>`: Minimale Wartezeit zwischen Anfragen (Standard: 3). Je höher die Zahl, desto besser die Chance, nicht von Cardmarket erkannt zu werden und weniger Wiederholungen sind erforderlich.
+- `--create`: Erstellt eine neue CSV-Datei mit Standardspalten und macht keine weiteren Schritte. Diese Vorlage kann man mit den URLs von Cardmarket füllen.
+- `--pause`: Unterbricht die Ausführung nach jeweils 15 Karten, um die Erkennung durch Cardmarket zu verhindern (Standard: True).
+
+Beispielaufruf:
+```bash
+python cm-scraper.py --path input.xlsx --output output.xlsx --jump_over_filled --sleep 5
+```
+Beispiel um eine Vorlage zu generieren. Erstellt im `xlsx` Ordner das File `Vorlage.xlsx`.
+```bash
+python cm-scraper --create
+```
+Das erstellte File kann befüllt werden und mit
+```bash
+python cm-scraper.py
+```
+sofort verwendet werden ohne weitere Argumente. Das Ergebnis befindet sich dann in `Vorlage.xlsx`. 
+
