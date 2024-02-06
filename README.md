@@ -52,11 +52,13 @@ Das Skript akzeptiert verschiedene CLI-Argumente für die Steuerung seines Verha
 - `--create`: Erstellt eine neue CSV-Datei mit Standardspalten und macht keine weiteren Schritte. Diese Vorlage kann man mit den URLs von Cardmarket füllen.
 - `--pause`: Unterbricht die Ausführung nach jeweils 15 Karten, um die Erkennung durch Cardmarket zu verhindern (Standard: True).
 
-Beispielaufruf:
+### Beispielaufruf:
 ```bash
 python cm-scraper.py --path input.xlsx --output output.xlsx --jump_over_filled --sleep 5
 ```
-Beispiel um eine Vorlage zu generieren. Erstellt im `xlsx` Ordner das File `Vorlage.xlsx`.
+Das Program oeffnet `input.xlsx`, springt über schon befuellte Zellen und pausiert zw. 5.5 und 6.5 Sekunden zwischen jeder Karte. Anschließend wird das Ergebnis in `output.xlsx` ausgegeben.
+
+### Beispiel um eine Vorlage zu generieren. Erstellt im `xlsx` Ordner das File `Vorlage.xlsx`.
 ```bash
 python cm-scraper --create
 ```
@@ -64,5 +66,5 @@ Das erstellte File kann mit URLs zu den Karten befüllt werden und mit
 ```bash
 python cm-scraper.py
 ```
-sofort verwendet werden ohne weitere Argumente. Das Ergebnis befindet sich dann in `Vorlage.xlsx`. 
+sofort verwendet werden ohne weitere Argumente. Das Ergebnis befindet sich dann in `Ergebnis.xlsx`. 
 
