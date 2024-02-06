@@ -50,7 +50,7 @@ Das Skript akzeptiert verschiedene CLI-Argumente für die Steuerung seines Verha
 - `--jump_over_filled`: Überspringt gefüllte Einträge und ruft nur neue URLs ab (Standard: False).
 - `--sleep <SECONDS>`: Minimale Wartezeit zwischen Anfragen (Standard: 3). Je höher die Zahl, desto besser die Chance, nicht von Cardmarket erkannt zu werden und weniger Wiederholungen sind erforderlich.
 - `--create`: Erstellt eine neue XLSX-Datei mit Standardspalten und macht keine weiteren Schritte. Diese Vorlage kann man mit den URLs von Cardmarket füllen.
-- `--pause`: Unterbricht die Ausführung nach jeweils 15 Karten, um die Erkennung durch Cardmarket zu verhindern (Standard: True).
+- `--pause`: Unterbricht die Ausführung nach jeweils 15 Karten, um die Erkennung durch Cardmarket zu verhindern (Standard: True). [evt. verbugged, wenn flag gesetzt wird, wird es wieder auf True gesetzt ^^]
 
 ### Erster Aufruf:
 Erster Aufruf zeigt die Hilfe an und bricht danach ab. Ein file `.cache` wird erstellt (auf Linux versteckt), was nur zeigt ob das Program einmal ausgefuehrt wurde und sonst (noch) keinen Zweck hat.
@@ -60,7 +60,7 @@ Das ist kein Bug, das ist ein Feature ;)
 ```bash
 python cm-scraper.py --path input.xlsx --output output.xlsx --jump_over_filled --sleep 5
 ```
-Das Program oeffnet `input.xlsx`, springt über schon befuellte Zellen und pausiert zw. 5.5 und 6.5 Sekunden zwischen jeder Karte. Anschließend wird das Ergebnis in `output.xlsx` ausgegeben.
+Das Program oeffnet `input.xlsx`, springt über schon befuellte Zellen und pausiert zw. 5.5 und 6.5 Sekunden (addiert die gegebene Zahl hinzu) zwischen jeder Karte. Anschließend wird das Ergebnis in `output.xlsx` ausgegeben.
 
 ### Beispielaufruf 2:
 Befehl um eine Vorlage mit Standardspalten zu generieren. Erstellt im `xlsx` Ordner das File `Vorlage.xlsx`.
