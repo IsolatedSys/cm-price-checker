@@ -1,4 +1,4 @@
-import query_card
+from scripts.query_card import query_card, extract_card_name, extract_card_number, extract_price_map
 
 
 class Card:
@@ -15,10 +15,10 @@ class Card:
 
     @classmethod
     def with_url(cls, url):
-        html = query_card.query_card(url)
-        name = query_card.extract_card_name(html)
-        number = query_card.extract_card_number(html)
-        price_map = query_card.extract_price_map(html)
+        html = query_card(url)
+        name = extract_card_name(html)
+        number = extract_card_number(html)
+        price_map = extract_price_map(html)
         if not price_map:
             return None
         return cls(name, number, price_map, url)
