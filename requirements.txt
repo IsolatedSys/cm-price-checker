@@ -1,0 +1,5 @@
+re
+cfscrape
+beautifulsoup4
+fake_useragent
+pandas
