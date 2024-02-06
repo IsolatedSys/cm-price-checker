@@ -1,7 +1,7 @@
 import random
 from time import sleep
-from card import Card
-import open_csv
+from scripts.card import Card
+from scripts import open_csv
 
 jump_over_filled = True
 
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     3:
     """
 
-    path = 'cm_list_nur_urls.xlsx'
+    path = 'xlsx/cm_list_nur_urls.xlsx'
     df = open_csv.read_csv(path)
 
     cards = []
