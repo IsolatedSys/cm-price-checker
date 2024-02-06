@@ -1,7 +1,7 @@
 # cm-price-checker
 
 ## Windows Executable
-1. Downloader der .exe Datei in Releases
+1. Downloade die .exe Datei in [Releases](https://github.com/IsolatedSys/cm-price-checker/releases/tag/v1.1.0)
 2. Commandline (cmd) öffnen und mit `.\cm-scraper.exe` ausführen. Weitere Argumente siehe Abschnitt [CLI Arguments](./README.md#cli-argumente)
 
 ## Python
