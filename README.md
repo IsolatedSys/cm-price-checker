@@ -20,6 +20,7 @@
    - Arch Linux: `sudo pacman -S python`
 
 ## Requirements
+- Chrome oder eine Chromium-Derivat
 
 ### Dependencies:
 - re
