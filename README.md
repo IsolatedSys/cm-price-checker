@@ -23,7 +23,6 @@
 - Chrome oder eine Chromium-Derivat
 
 ### Dependencies:
-- re
 - cfscrape
 - BeautifulSoup
 - fake_useragent
