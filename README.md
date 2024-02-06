@@ -66,5 +66,5 @@ Das erstellte File kann mit URLs zu den Karten befüllt werden und mit
 ```bash
 python cm-scraper.py
 ```
-sofort verwendet werden ohne weitere Argumente. Das Ergebnis befindet sich dann in `Ergebnis.xlsx`. 
+sofort ohne weitere Argumente verwendet werden. Das Ergebnis befindet sich dann in `xlsx/Ergebnis.xlsx`. 
 
