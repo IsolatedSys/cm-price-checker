@@ -1,11 +1,11 @@
 import re
 import cfscrape
 from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
+from my_fake_useragent import UserAgent
 
 def query_card(url):
     ua = UserAgent()
-    user_agent = ua.random
+    user_agent = ua.random()
     scraper = cfscrape.create_scraper()
     scraper.headers['User-Agent'] = user_agent
     # print(scraper.headers['User-Agent'])

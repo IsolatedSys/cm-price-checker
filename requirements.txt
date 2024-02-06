@@ -1,6 +1,6 @@
 cfscrape
 beautifulsoup4
-fake_useragent
+my_fake_useragent
 pandas
 setuptools
 urllib3 < 2.0

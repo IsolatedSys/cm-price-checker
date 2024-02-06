@@ -1,5 +1,6 @@
 import random
 import argparse
+import sys
 
 from time import sleep
 from scripts.card import Card
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     if not check_executed():
         print("First time executed. Read the help to get started.\n")
         parser.print_help()
-        exit(0)
+        sys.exit(0)
 
     if not args.path:
         args.path = 'xlsx/Vorlage.xlsx'
@@ -87,7 +88,7 @@ if __name__ == "__main__":
         args.pause = True
     if args.create:
         open_csv.create_csv()
-        exit(1)
+        sys.exit(1)
 
     print("Started with Args: ", args)
 

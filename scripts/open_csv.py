@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 
 
@@ -88,6 +89,9 @@ def insert_values(df, index, card):
 
 def create_csv():
     df = pd.DataFrame(columns=['CM-Link', 'Kartenname', 'Kartennummer', 'CM-Preis ab', 'CM-Trend', 'CM-30-Tage', 'CM-7-Tage', 'CM-1-Tag', 'skip'])
+    folder_path = 'xlsx'
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
     df.to_excel('xlsx/Vorlage.xlsx', index=False)
     print("Created xlsx/Vorlage.xlsx")
 

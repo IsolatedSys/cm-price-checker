@@ -9,7 +9,7 @@ def read_cache(path):
 
 
 def check_executed():
-    file_path = 'scripts/.cache'
+    file_path = '.cache'
     is_empty = read_cache(file_path)
 
     if is_empty:

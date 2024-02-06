@@ -26,7 +26,7 @@ setup(
     install_requires=[
         'cfscrape',
         'beautifulsoup4',
-        'fake_useragent',
+        'my_fake_useragent',
         'pandas',
     ],
 )
