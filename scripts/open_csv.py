@@ -52,7 +52,18 @@ def insert_card_number(path, numbers):
     return df
 
 
+def remove_unnamed(df):
+    """
+    Should rename the unnamed columns headers to empty strings
+    :param df:
+    :return:
+    """
+    df.columns = ["" if "Unnamed" in col else col for col in df.columns]
+    return df
+
+
 def save_to_excel(df, path="tmp.xlsx"):
+    df = remove_unnamed(df)
     df.to_excel(path, index=False)
 
 
@@ -95,3 +106,6 @@ def create_csv():
     df.to_excel('xlsx/Vorlage.xlsx', index=False)
     print("Created xlsx/Vorlage.xlsx")
 
+
+def concat(df, original: pd.DataFrame):
+    return pd.concat([df, original], axis=1)

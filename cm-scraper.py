@@ -8,11 +8,15 @@ from scripts import open_csv
 from scripts.check_if_executed import check_executed
 
 
-def main(path='xlsx/Vorlage.xlsx', output='xlsx/Ergebnis.xlsx', jump_over_filled=False, sleep_time=0, pause=False):
+def main(path='xlsx/Vorlage.xlsx', output='xlsx/Ergebnis.xlsx', jump_over_filled=False, sleep_time=0, pause=False, concat=False):
     print(path, jump_over_filled)
 
     df = open_csv.read_csv(path)
+    original = df.iloc[:, 9:].copy()
+    num_rows = df['CM-Link'].count()
+    df = df.iloc[:num_rows, :9]
     for index, row in df.iterrows():
+        df = df.iloc[:num_rows, :9]
         # Print the current index and the total length of the dataframe
         print(f"{index} from {len(df)}")
 
@@ -36,6 +40,8 @@ def main(path='xlsx/Vorlage.xlsx', output='xlsx/Ergebnis.xlsx', jump_over_filled
 
         # Insert the values into the dataframe
         print(card)
+        if concat:
+            df = open_csv.concat(df, original)
         open_csv.insert_values(df, index, card)
         open_csv.save_to_excel(df, path=output)
 
@@ -67,6 +73,7 @@ if __name__ == "__main__":
                              'the number the better the chance to not get detected by cardmarket the less retries are '
                              'needed')
     parser.add_argument('--create', action='store_true', help='Creates a new csv file with default columns')
+    parser.add_argument('--concat', action='store_true', help='Concatenates original with new. Removes all functions and hyperlinks. (Not clickable and instead of functions the text)')
     parser.add_argument('--pause', action='store_true', help='Pauses the execution after every 15 cards to prevent '
                                                              'detection by cardmarket. (default: True)')
     args = parser.parse_args()
@@ -89,7 +96,9 @@ if __name__ == "__main__":
     if args.create:
         open_csv.create_csv()
         sys.exit(1)
+    if not args.concat:
+        args.concat = False
 
     print("Started with Args: ", args)
 
-    main(path=args.path, output=args.output, jump_over_filled=args.jump_over_filled, sleep_time=args.sleep, pause=args.pause)
+    main(path=args.path, output=args.output, jump_over_filled=args.jump_over_filled, sleep_time=args.sleep, pause=args.pause, concat=args.concat)

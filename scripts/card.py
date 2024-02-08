@@ -2,15 +2,15 @@ from scripts.query_card import query_card, extract_card_name, extract_card_numbe
 
 
 class Card:
-    def __init__(self, name, number, price_map, url):
+    def __init__(self, name, number, price_map: dict, url):
         self.name = name
         self.number = number
         if price_map:
-            self.from_price = price_map['ab']
-            self.trend_price = price_map['Preis-Trend']
-            self.monthly_price = price_map['30-Tages-Durchschnitt']
-            self.weekly_price = price_map['7-Tages-Durchschnitt']
-            self.daily_price = price_map['1-Tages-Durchschnitt']
+            self.from_price = price_map.get('ab', price_map['From'])
+            self.trend_price = price_map.get('Preis-Trend', price_map['Price Trend'])
+            self.monthly_price = price_map.get('30-Tages-Durchschnitt', price_map['30-days average price'])
+            self.weekly_price = price_map.get('7-Tages-Durchschnitt', price_map['7-days average price'])
+            self.daily_price = price_map.get('1-Tages-Durchschnitt', price_map['1-day average price'])
         self.url = url
 
     @classmethod
