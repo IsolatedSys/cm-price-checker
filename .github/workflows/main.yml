@@ -1,0 +1,34 @@
+name: Build with Py2exe
+
+on:
+  push:
+    branches:
+      - deploy
+  pull_request:
+    branches:
+      - deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '2.x' # Stellen Sie sicher, dass Sie die richtige Python-Version angeben
+
+    - name: Install dependencies
+      run: pip install py2exe
+      
+    - name: Build with Py2exe
+      run: py2exe scripts/cm-scraper.py # Ersetzen Sie "your_script.py" durch den Namen Ihrer Python-Anwendung
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: exe-files
+        path: dist/ # Der Pfad zum Verzeichnis, in dem Ihre kompilierte Anwendung erstellt wurde
