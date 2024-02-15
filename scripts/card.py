@@ -6,7 +6,6 @@ class Card:
         self.name = name
         self.number = number
         if price_map:
-            print(price_map)
             try:
                 self.from_price = price_map['ab']
                 self.trend_price = price_map['Preis-Trend']
@@ -20,7 +19,6 @@ class Card:
                 self.weekly_price = price_map['7-days average price']
                 self.daily_price = price_map['1-day average price']
             finally:
-                print(self.name, self.number, self.from_price, self.trend_price, self.monthly_price, self.weekly_price, self.daily_price)
                 self.url = url
 
     @classmethod

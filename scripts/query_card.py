@@ -4,15 +4,20 @@ from bs4 import BeautifulSoup
 from my_fake_useragent import UserAgent
 
 def query_card(url):
-    ua = UserAgent()
-    user_agent = ua.random()
-    scraper = cfscrape.create_scraper()
-    scraper.headers['User-Agent'] = user_agent
-    # print(scraper.headers['User-Agent'])
-    # print(scraper.headers)
-    response = scraper.get(url)
-    scraper.close()
-    return response.content
+    while True:
+        ua = UserAgent()
+        user_agent = ua.random()
+        scraper = cfscrape.create_scraper()
+        scraper.headers['User-Agent'] = user_agent
+        # print(scraper.headers['User-Agent'])
+        # print(scraper.headers)
+        response = ''
+        try:
+            response = scraper.get(url)
+            scraper.close()
+            return response.content
+        except:
+            continue
 
 
 def extract_card_name(html):
@@ -60,7 +65,6 @@ def extract_price_map(html):
             ret[dt_text] = dd_text
         return ret
     except AttributeError:
-        print("No price found for card")
         return None
 
 

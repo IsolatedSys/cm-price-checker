@@ -84,8 +84,6 @@ def insert_values(df, index, card):
     :param card: The card object to insert
     :return: The dataframe with the inserted values
     """
-    print(f"Inserting values for {card.name} at index {index}")
-    print(f"{card}")
     df.at[index, 'CM-Preis ab'] = clear_floats(card.from_price)
     df.at[index, 'CM-Trend'] = clear_floats(card.trend_price)
     df.at[index, 'CM-30-Tage'] = clear_floats(card.monthly_price)
